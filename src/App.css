@@ -1,4 +1,4 @@
-/* Home & Global Application Styling */
+/* Global & Home Page Styles */
 
 * {
   box-sizing: border-box;
@@ -13,19 +13,37 @@ body {
   min-height: 100vh;
 }
 
-/* Home Layout */
 .home-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Header with Top-Right Cart Status */
+/* Header & Cart Status */
 .home-header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 28px 48px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 48px;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #6b7280;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #111827;
 }
 
 .cart-status-link {
@@ -62,7 +80,7 @@ body {
   color: #1f2937;
 }
 
-/* Center Content for Category Cards */
+/* Home Centered Category Cards */
 .home-content {
   flex: 1;
   display: flex;
@@ -79,7 +97,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Category Rounded Square Cards */
 .category-card {
   width: 220px;
   height: 220px;
@@ -102,5 +119,179 @@ body {
 .category-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
-  color: #2563eb;
+}
+
+/* ======================================================== */
+/* Category Page Layout (Matches Assignment Reference Photo) */
+/* ======================================================== */
+
+.category-page-content {
+  display: flex;
+  padding: 16px 48px 48px;
+  max-width: 1350px;
+  width: 100%;
+}
+
+/* Left Sidebar: Filter */
+.filter-sidebar {
+  width: 200px;
+  padding-right: 48px;
+  border-right: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.filter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 24px;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-item input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: #111827;
+  cursor: pointer;
+}
+
+.filter-name {
+  color: #4b5563;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Right Main: Products Grid */
+.category-main {
+  flex: 1;
+  padding-left: 48px;
+}
+
+.category-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 28px;
+}
+
+.products-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Individual Product Card */
+.product-item-card {
+  width: 200px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.product-img-wrapper {
+  width: 100%;
+  height: 145px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #f3f4f6;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px;
+}
+
+.product-stock-status {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.product-stock-status.in-stock {
+  color: #16a34a;
+}
+
+.product-stock-status.out-of-stock {
+  color: #ef4444;
+}
+
+/* Add to Cart Button States */
+.btn-add {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  margin-top: auto;
+  transition: all 0.2s ease;
+}
+
+.btn-add.btn-active {
+  background-color: #111827;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn-add.btn-active:hover {
+  background-color: #1f2937;
+}
+
+.btn-add.btn-disabled {
+  background-color: #d1d5db;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.no-products-msg {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-top: 16px;
 }
