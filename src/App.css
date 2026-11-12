@@ -46,6 +46,7 @@ body {
   color: #111827;
 }
 
+/* One single link for count and price */
 .cart-status-link {
   display: inline-flex;
   align-items: center;
@@ -294,4 +295,147 @@ body {
   color: #6b7280;
   font-size: 0.95rem;
   margin-top: 16px;
+}
+
+/* ======================================================== */
+/* Checkout Page Layout (Matches Assignment Reference Photo) */
+/* ======================================================== */
+
+.checkout-page-content {
+  padding: 16px 48px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.checkout-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 28px;
+}
+
+.checkout-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 36px 44px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-table {
+  width: 100%;
+}
+
+.checkout-table-header {
+  display: grid;
+  grid-template-columns: 2.4fr 1.2fr 1fr 40px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.checkout-row {
+  display: grid;
+  grid-template-columns: 2.4fr 1.2fr 1fr 40px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.checkout-row:last-child {
+  border-bottom: none;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.checkout-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #f3f4f6;
+  flex-shrink: 0;
+}
+
+.checkout-product-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.checkout-price-cell {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.checkout-qty-cell {
+  display: flex;
+  align-items: center;
+}
+
+/* Minimal input with bottom underline */
+.quantity-underline-input {
+  width: 44px;
+  border: none;
+  border-bottom: 1.5px solid #111827;
+  background: transparent;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111827;
+  padding: 2px 0;
+  outline: none;
+  border-radius: 0;
+}
+
+.quantity-underline-input::-webkit-outer-spin-button,
+.quantity-underline-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-underline-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.checkout-action-cell {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Circular black button with white ✕ */
+.btn-remove-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #111827;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-remove-circle:hover {
+  background-color: #ef4444;
+  transform: scale(1.1);
+}
+
+.empty-checkout {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 1.05rem;
 }

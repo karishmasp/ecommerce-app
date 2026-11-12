@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import categories from '../data/categories.json';
 import products from '../data/products.json';
+import { useCart } from '../context/CartContext';
 
 const Category = () => {
   const { categoryId } = useParams();
+  const { totalCount, totalPrice, addToCart } = useCart();
 
   // Filters state
   const [deliveryOnly, setDeliveryOnly] = useState(false);
@@ -36,14 +38,16 @@ const Category = () => {
 
   return (
     <div className="home-container">
-      {/* Top Header with Back to Home & Cart widget */}
+      {/* Top Header with Back to Home & Cart widget (one link to checkout) */}
       <header className="category-header">
         <Link to="/" className="back-link">
           &larr; Home
         </Link>
         <Link to="/checkout" className="cart-status-link">
-          <span className="cart-count-badge">5</span>
-          <span className="cart-total-price">$93.00</span>
+          <span className="cart-count-badge">{totalCount}</span>
+          <span className="cart-total-price">
+            ${totalPrice.toFixed(2)}
+          </span>
         </Link>
       </header>
 
@@ -83,8 +87,6 @@ const Category = () => {
           </div>
         </aside>
 
-        {/* Vertical separator line is styled on the sidebar border */}
-
         {/* Right Column: Category Title and Products Grid */}
         <main className="category-main">
           <h1 className="category-heading">{categoryName}</h1>
@@ -100,7 +102,6 @@ const Category = () => {
                       className="product-img"
                       onError={e => {
                         e.target.onerror = null;
-                        // Clean fallback placeholder matching category
                         e.target.src =
                           'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&h=200&fit=crop';
                       }}
@@ -120,12 +121,14 @@ const Category = () => {
                     {product.inStock ? 'In stock' : 'Out of stock'}
                   </div>
 
+                  {/* On click Add to Cart */}
                   <button
                     type="button"
                     className={`btn-add ${
                       product.inStock ? 'btn-active' : 'btn-disabled'
                     }`}
                     disabled={!product.inStock}
+                    onClick={() => addToCart(product)}
                   >
                     Add to cart
                   </button>
