@@ -2,6 +2,7 @@
   "name": "ecommerce-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://karishmasp.github.io/ecommerce-app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^13.5.0",
@@ -28,6 +29,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clear && react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js",
@@ -54,6 +57,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^13.4.0"
+    "@testing-library/react": "^13.4.0",
+    "gh-pages": "^6.3.0"
   }
 }
