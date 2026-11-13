@@ -378,11 +378,12 @@ body {
 .checkout-qty-cell {
   display: flex;
   align-items: center;
+  gap: 6px;
 }
 
 /* Minimal input with bottom underline */
 .quantity-underline-input {
-  width: 44px;
+  width: 36px;
   border: none;
   border-bottom: 1.5px solid #111827;
   background: transparent;
@@ -403,6 +404,34 @@ body {
 
 .quantity-underline-input[type='number'] {
   -moz-appearance: textfield;
+}
+
+/* Plus & Minus buttons for increasing / decreasing quantity */
+.qty-step-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.15rem;
+  color: #4b5563;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.qty-step-btn:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.qty-step-btn:active {
+  transform: scale(0.9);
 }
 
 .checkout-action-cell {

@@ -43,6 +43,30 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Increase quantity of a product
+  const increaseQuantity = productId => {
+    setCart(prevCart =>
+      prevCart.map(item =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  // Decrease quantity of a product (removes if reaches 0)
+  const decreaseQuantity = productId => {
+    setCart(prevCart =>
+      prevCart
+        .map(item =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter(item => item.quantity > 0)
+    );
+  };
+
   // Remove item from cart
   const removeFromCart = productId => {
     setCart(prevCart => prevCart.filter(item => item.id !== productId));
@@ -83,6 +107,8 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         updateQuantity,
+        increaseQuantity,
+        decreaseQuantity,
         clearCart,
         totalCount,
         totalPrice,

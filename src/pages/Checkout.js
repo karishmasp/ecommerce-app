@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 const Checkout = () => {
-  const { cart, removeFromCart, updateQuantity, totalCount, totalPrice } =
-    useCart();
+  const {
+    cart,
+    removeFromCart,
+    updateQuantity,
+    increaseQuantity,
+    decreaseQuantity,
+    totalCount,
+    totalPrice,
+  } = useCart();
 
   return (
     <div className="home-container">
@@ -65,8 +72,16 @@ const Checkout = () => {
                       ${Number(item.price).toFixed(2)}
                     </div>
 
-                    {/* Quantity with underline */}
+                    {/* Quantity with increase / decrease controls and underline */}
                     <div className="col-quantity checkout-qty-cell">
+                      <button
+                        type="button"
+                        className="qty-step-btn"
+                        onClick={() => decreaseQuantity(item.id)}
+                        title="Decrease count"
+                      >
+                        &minus;
+                      </button>
                       <input
                         type="number"
                         min="1"
@@ -76,6 +91,14 @@ const Checkout = () => {
                         }
                         className="quantity-underline-input"
                       />
+                      <button
+                        type="button"
+                        className="qty-step-btn"
+                        onClick={() => increaseQuantity(item.id)}
+                        title="Increase count"
+                      >
+                        +
+                      </button>
                     </div>
 
                     {/* Black circle remove button with white ✕ */}
